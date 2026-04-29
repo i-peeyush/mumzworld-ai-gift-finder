@@ -18,6 +18,13 @@ This prototype targets that moment. It is useful because it can reduce browsing 
 - Uncertainty handling: missing budget, missing age, missing country, low evidence, and refusal cases.
 - Evals with 10 cases covering easy, Arabic, ambiguous, low-budget, unavailable-country, and safety-sensitive requests.
 
+
+## Loom walkthrough:
+https://www.loom.com/share/190f2e3581f54d1b904e20c852501f02
+or
+https://drive.google.com/file/d/1qVp3BKQFDbxMnKsuo4rZc-mzH1jVbZqV/view?usp=sharing
+
+
 ## Setup
 
 Requires Python 3.11+.
@@ -79,16 +86,8 @@ The prototype returns JSON with this shape:
 
 If the request is unsupported, `status` becomes `refused` and `shortlist` must be empty.
 
-## Tooling
 
-I used Codex / ChatGPT as an AI pair-programming assistant to read the assignment, choose Track A scope, generate the first implementation, and create README/eval/tradeoff notes. I kept the prototype dependency-light so reviewers can run it in under 5 minutes. The current runnable baseline is deterministic rather than API-dependent; a production version would use OpenRouter or another model gateway for richer language understanding and final copy generation, while keeping the same retrieval, schema, and eval harness.
-
-Key prompt shape used:
-
-```text
-Build a Track A Mumzworld AI engineering prototype that is scoped to 5 hours,
-uses retrieval + structured output validation + multilingual EN/AR behavior,
-and includes honest evals and uncertainty handling.
+evals and uncertainty handling.
 ```
 
 ## Known Limitations
@@ -106,18 +105,6 @@ and includes honest evals and uncertainty handling.
 - 3-minute Loom: show the five demo inputs from `SUBMISSION_NOTES.md`.
 - Evals: `python evals.py`, current score `10 / 10`.
 - Markdown deliverables: this README, `EVALS.md`, and `TRADEOFFS.md`.
-
-## AI Usage Note
-
-Used Codex / ChatGPT to read the brief, pick a Track A problem, pair-program the Python prototype, generate eval cases, and draft documentation. I reviewed and adjusted the eval failures manually, especially budget refusal and category-specific retrieval. No retailer sites were scraped; catalog data is synthetic.
-
-## Time Log
-
-- 0:00-0:30: Read brief and chose Track A gift-finder scope.
-- 0:30-1:30: Designed catalog schema, retrieval signals, and output schema.
-- 1:30-2:45: Built CLI prototype and validation.
-- 2:45-3:45: Added evals, ran failures, tuned retrieval/refusal behavior.
-- 3:45-5:00: Wrote README, EVALS, TRADEOFFS, and Loom notes.
 
 ## What I Would Build Next
 
